@@ -27,7 +27,7 @@ set noswapfile                  " Disable creation of swap files.
 
 " SETTINGS
 
-set number				" Show line numbers
+"set number				" Show line numbers
 set showcmd				" Show (partial) command in status line.
 set showmatch			" Show matching brackets.
 set ignorecase			" Do case insensitive matching
@@ -35,7 +35,7 @@ set smartcase			" Do smart case matching
 set incsearch			" Incremental search
 set autowrite			" Automatically save before commands like :next and :make
 set hidden              " Hide buffers when they are abandoned
-set mouse=a				" Enable mouse usage (all modes)
+"set mouse=a				" Enable mouse usage (all modes)
 set mousehide			" Hide mouse after chars typed
 set cf					" Enable error files & error jumping.
 set clipboard+=unnamed  " Yanks go on clipboard instead.
@@ -49,6 +49,7 @@ set softtabstop=4		" Inset 4 columns when tab is hit
 set shiftwidth=4		" Indent four columns
 set expandtab			" Use spaces instead of tabs
 set smarttab			" Auto-tab
+set visualbell
 
 " MAPPINGS
 
