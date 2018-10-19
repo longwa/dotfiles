@@ -58,15 +58,15 @@ export DEFAULT_USER=along
 # Aliases
 alias ll="ls -la"
 alias guard="grails -reloading -debug -plain-output -echoOut -Ddo.not.fork.tests=true test-app -guard integration:"
-alias grails_profile="grails -Dprofiler.enabled=true"
 alias tf="cd $HOME/sandbox/griffin/trifleet"
 alias tf3="cd $HOME/sandbox/griffin3"
 alias search="find . -name '*.groovy' -o -name '*.java' | xargs grep -i "
-alias gnuke="grails clean-all && grails r-d && grails compile"
 alias gvm="sdk"
+alias bootRun="gradle bootRun -Dgrails.run.active=true" 
 
 # Java Stuff
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_111`
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_161`
+#export JAVA_TOOL_OPTIONS="-Dapple.awt.UIElement=true"
 export GRAILS_OPTS="-Xmx4g -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8 -Dspringloaded.synchronize=true"
 
 #export GRAILS_OPTS="-Xmx4g -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8 -Dspringloaded.synchronize=true"
@@ -93,6 +93,27 @@ function grailsTestOrder() {
 
 # Initialize chef environment
 # if which chef > /dev/null; then eval "$(chef shell-init zsh)"; fi
+
+lazynvm() {
+  unset -f nvm node npm
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+}
+
+nvm() {
+  lazynvm
+  nvm $@
+}
+
+node() {
+  lazynvm
+  node $@
+}
+
+npm() {
+  lazynvm
+  npm $@
+}
 
 # SDK Man
 export SDKMAN_DIR="/Users/along/.sdkman"
