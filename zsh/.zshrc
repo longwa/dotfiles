@@ -34,20 +34,14 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git knife)
+plugins=(git ng)
 
 # User configuration
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
-else
-   export EDITOR='vim'
-fi
+export EDITOR='vim'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -57,20 +51,15 @@ export DEFAULT_USER=along
 
 # Aliases
 alias ll="ls -la"
+alias tf="cd $HOME/sandbox/griffin"
 alias guard="grails -reloading -debug -plain-output -echoOut -Ddo.not.fork.tests=true test-app -guard integration:"
-alias tf="cd $HOME/sandbox/griffin/trifleet"
-alias tf3="cd $HOME/sandbox/griffin3"
 alias search="find . -name '*.groovy' -o -name '*.java' | xargs grep -i "
 alias gvm="sdk"
 alias bootRun="gradle bootRun -Dgrails.run.active=true" 
+alias idea="open -a IntelliJ\ IDEA "
 
 # Java Stuff
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_161`
-#export JAVA_TOOL_OPTIONS="-Dapple.awt.UIElement=true"
-export GRAILS_OPTS="-Xmx4g -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8 -Dspringloaded.synchronize=true"
-
-#export GRAILS_OPTS="-Xmx4g -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8 -Dspringloaded.synchronize=true"
-#export DYLD_LIBRARY_PATH=/Applications/YourKit.app/Contents/Resources/bin/mac:$DYLD_LIBRARY_PATH
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_181`
 
 # Bintray user information
 export BINTRAY_USER=longwa
@@ -83,10 +72,6 @@ set -o vi
 setopt +o nomatch
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-function grailsTestOrder() {
-    grep testsuite target/test-reports/TESTS-TestSuites.xml | grep -v testsuites | cut -d\  -f8-9 | sed -E 's/name="(.*)" package="(.*)"/\2.\1/' | grep .
-}
 
 # Initialize ruby environment
 # if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
