@@ -59,7 +59,7 @@ alias bootRun="gradle bootRun -Dgrails.run.active=true"
 alias idea="open -a IntelliJ\ IDEA "
 
 # Java Stuff
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_181`
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0`
 
 # Bintray user information
 export BINTRAY_USER=longwa
