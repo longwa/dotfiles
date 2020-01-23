@@ -34,7 +34,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ng)
+plugins=(git ng docker kubectl)
 
 # User configuration
 source $ZSH/oh-my-zsh.sh
@@ -55,8 +55,9 @@ alias tf="cd $HOME/sandbox/griffin"
 alias guard="grails -reloading -debug -plain-output -echoOut -Ddo.not.fork.tests=true test-app -guard integration:"
 alias search="find . -name '*.groovy' -o -name '*.java' | xargs grep -i "
 alias gvm="sdk"
-alias bootRun="gradle bootRun -Dgrails.run.active=true" 
+alias bootRun="gradle bootRun -Pdebug" 
 alias idea="open -a IntelliJ\ IDEA "
+alias ss="sdk switch"
 
 # Java Stuff
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0`
@@ -70,7 +71,6 @@ set -o vi
 
 # Disable default glob matching
 setopt +o nomatch
-
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Initialize ruby environment
