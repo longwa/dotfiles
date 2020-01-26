@@ -56,6 +56,7 @@ alias guard="grails -reloading -debug -plain-output -echoOut -Ddo.not.fork.tests
 alias search="find . -name '*.groovy' -o -name '*.java' | xargs grep -i "
 alias gvm="sdk"
 alias bootRun="gradle bootRun -Pdebug" 
+alias br="gradle bootRun -Pdebug"
 alias idea="open -a IntelliJ\ IDEA "
 alias ss="sdk switch"
 
